@@ -1,0 +1,402 @@
+<?xml version="1.0"?>
+<root name="FrameworkManager">
+  <TabWidget name="Main_TabWidget">
+    <Tab name="motors">
+      <TabWidget name="UavMultiplex">
+        <Tab name="Setup">
+          <GroupBox name="x4 multiplex">
+            <ComboBox name="front left blade pitch:" value="0"/>
+          </GroupBox>
+          <GroupBox name="motor attribution">
+            <ComboBox name="front left" value="0"/>
+            <ComboBox name="front rigth" value="1"/>
+            <ComboBox name="rear left" value="2"/>
+            <ComboBox name="rear rigth" value="3"/>
+          </GroupBox>
+          <GroupBox name="bldc">
+            <Label name="flight time"/>
+            <DoubleSpinBox name="min value:" value="0.4"/>
+            <DoubleSpinBox name="max value:" value="1"/>
+            <DoubleSpinBox name="test value:" value="0.1"/>
+            <PushButton name="test motor 0"/>
+            <PushButton name="test motor 1"/>
+            <PushButton name="test motor 2"/>
+            <PushButton name="test motor 3"/>
+          </GroupBox>
+          <GroupBox name="simubldc">
+            <DoubleSpinBox name="k driver:" value="86"/>
+          </GroupBox>
+        </Tab>
+        <Tab name="Values">
+          <DataPlot1D name="front left" period="100" enabled="0"/>
+          <DataPlot1D name="front right" period="100" enabled="0"/>
+          <DataPlot1D name="rear left" period="100" enabled="0"/>
+          <DataPlot1D name="rear right" period="100" enabled="0"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="us">
+      <TabWidget name="us">
+        <Tab name="Reglages">
+          <GroupBox name="us">
+            <SpinBox name="data rate" value="50"/>
+          </GroupBox>
+          <GroupBox name="Passe bas">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="cutoff frequency" value="5"/>
+          </GroupBox>
+          <GroupBox name="Vz">
+            <DoubleSpinBox name="period, 0 for auto:" value="0"/>
+            <DoubleSpinBox name="saturation, -1 to disable:" value="-1"/>
+          </GroupBox>
+          <GroupBox name="Passe bas v">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="cutoff frequency" value="5"/>
+          </GroupBox>
+        </Tab>
+        <Tab name="Mesures">
+          <DataPlot1D name="us" period="100" enabled="0"/>
+          <DataPlot1D name="vz" period="100" enabled="0"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="imu">
+      <TabWidget name="imu">
+        <Tab name="Reglages">
+          <GroupBox name="imu">
+            <SpinBox name="data rate" value="200"/>
+          </GroupBox>
+        </Tab>
+        <Tab name="AHRS">
+          <DataPlot1D name="roll" period="100" enabled="0"/>
+          <DataPlot1D name="pitch" period="100" enabled="0"/>
+          <DataPlot1D name="yaw" period="100" enabled="0"/>
+          <DataPlot1D name="w_x" period="100" enabled="0"/>
+          <DataPlot1D name="w_y" period="100" enabled="0"/>
+          <DataPlot1D name="w_z" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Quaternion">
+          <DataPlot1D name="q0" period="100" enabled="0"/>
+          <DataPlot1D name="q1" period="100" enabled="0"/>
+          <DataPlot1D name="q2" period="100" enabled="0"/>
+          <DataPlot1D name="q3" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="IMU">
+          <DataPlot1D name="acc_x" period="100" enabled="0"/>
+          <DataPlot1D name="acc_y" period="100" enabled="0"/>
+          <DataPlot1D name="acc_z" period="100" enabled="0"/>
+          <DataPlot1D name="gyr_x" period="100" enabled="0"/>
+          <DataPlot1D name="gyr_y" period="100" enabled="0"/>
+          <DataPlot1D name="gyr_z" period="100" enabled="0"/>
+          <DataPlot1D name="mag_x" period="100" enabled="0"/>
+          <DataPlot1D name="mag_y" period="100" enabled="0"/>
+          <DataPlot1D name="mag_z" period="100" enabled="0"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="battery">
+      <GroupBox name="battery">
+        <Label name="battery"/>
+        <DoubleSpinBox name="threshold" value="10"/>
+        <SpinBox name="threshold time" value="10"/>
+      </GroupBox>
+    </Tab>
+    <Tab name="simu_cam_v">
+      <TabWidget name="simu_cam_v">
+        <Tab name="Setup">
+          <GroupBox name="simu_cam_v"/>
+          <GridLayout name="setup"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="simu_cam_h">
+      <TabWidget name="simu_cam_h">
+        <Tab name="Setup">
+          <GroupBox name="simu_cam_h"/>
+          <GridLayout name="setup"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="Dualshock3">
+      <TabWidget name="Dualshock3">
+        <Tab name="Reglages">
+          <GroupBox name="consignes joy">
+            <DoubleSpinBox name="debattement roll" value="-20"/>
+            <DoubleSpinBox name="debattement pitch" value="-20"/>
+            <DoubleSpinBox name="debattement wz" value="90"/>
+            <DoubleSpinBox name="debattement dz" value="-0.7"/>
+            <DoubleSpinBox name="trim" value="0"/>
+            <Label name="trim roll"/>
+            <PushButton name="reset roll trim"/>
+            <Label name="trim pitch"/>
+            <PushButton name="reset pitch trim"/>
+          </GroupBox>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="uav">
+      <GridLayout name="buttons">
+        <PushButton name="kill"/>
+        <PushButton name="start_log"/>
+        <PushButton name="stop_log"/>
+        <PushButton name="take_off" value="1"/>
+        <PushButton name="land"/>
+        <PushButton name="Home" value="1"/>
+        <PushButton name="Flight Formation" value="1"/>
+        <DoubleSpinBox name="Home Position(x)" value="4"/>
+        <DoubleSpinBox name="Home Position(y)" value="-3"/>
+      <PushButton name="Hold_Pos / Formation"/><DoubleSpinBox name="Home Position(z)" value="1"/></GridLayout>
+      <GroupBox name="takeoff/landing">
+        <DoubleSpinBox name="desired takeoff altitude" value="1"/>
+        <DoubleSpinBox name="desired landing altitude" value="0"/>
+      </GroupBox>
+      <GroupBox name="alt cons">
+        <DoubleSpinBox name="period, 0 for auto:" value="0"/>
+        <DoubleSpinBox name="velocity max (absolute):" value="0.5"/>
+        <DoubleSpinBox name="acceleration (absolute):" value="0.2"/>
+      </GroupBox>
+    </Tab>
+    <Tab name="control laws">
+      <TabWidget name="laws">
+        <Tab name="Setup">
+          <GroupBox name="u_roll">
+            <DoubleSpinBox name="sat ref:" value="15"/>
+            <DoubleSpinBox name="kp:" value="15"/>
+            <DoubleSpinBox name="sat dref:" value="100"/>
+            <DoubleSpinBox name="kd:" value="0.1"/>
+            <DoubleSpinBox name="sat u:" value="0.5"/>
+          </GroupBox>
+          <GroupBox name="u_pitch">
+            <DoubleSpinBox name="sat ref:" value="15"/>
+            <DoubleSpinBox name="kp:" value="15"/>
+            <DoubleSpinBox name="sat dref:" value="100"/>
+            <DoubleSpinBox name="kd:" value="0.1"/>
+            <DoubleSpinBox name="sat u:" value="0.5"/>
+          </GroupBox>
+          <GroupBox name="u_yaw">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="kp:" value="1"/>
+            <DoubleSpinBox name="ki:" value="0"/>
+            <DoubleSpinBox name="sat i:" value="0"/>
+            <DoubleSpinBox name="kd:" value="0.1"/>
+            <DoubleSpinBox name="sat:" value="0.2"/>
+          </GroupBox>
+          <GroupBox name="u_z">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="kp:" value="0.3"/>
+            <DoubleSpinBox name="ki:" value="0.2"/>
+            <DoubleSpinBox name="sat i:" value="0.5"/>
+            <DoubleSpinBox name="kd:" value="0.1"/>
+            <DoubleSpinBox name="offset g:" value="0.6"/>
+            <DoubleSpinBox name="sat:" value="1"/>
+            <DoubleSpinBox name="offset step:" value="0.0002"/>
+          </GroupBox>
+        </Tab>
+        <Tab name="Graphes">
+          <DataPlot1D name="u_roll" period="100" enabled="0"/>
+          <DataPlot1D name="u_pitch" period="100" enabled="0"/>
+          <DataPlot1D name="u_yaw" period="100" enabled="0"/>
+          <DataPlot1D name="u_z" period="100" enabled="0"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="vrpn">
+      <TabWidget name="vrpn">
+        <Tab name="Reglages">
+          <GroupBox name="post rotation 1">
+            <DoubleSpinBox name="value" value="0"/>
+            <ComboBox name="axis" value="0"/>
+          </GroupBox>
+          <GroupBox name="post rotation 2">
+            <DoubleSpinBox name="value" value="0"/>
+            <ComboBox name="axis" value="0"/>
+          </GroupBox>
+          <GroupBox name="x4_0 Passe bas">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="cutoff frequency" value="2"/>
+          </GroupBox>
+          <GroupBox name="x4_0_euler">
+            <DoubleSpinBox name="period, 0 for auto:" value="0"/>
+            <DoubleSpinBox name="saturation, -1 to disable:" value="-1"/>
+          </GroupBox>
+          <GroupBox name="x4_1 Passe bas">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="cutoff frequency" value="1"/>
+          </GroupBox>
+          <GroupBox name="x4_1_euler">
+            <DoubleSpinBox name="period, 0 for auto:" value="0"/>
+            <DoubleSpinBox name="saturation, -1 to disable:" value="-1"/>
+          </GroupBox>
+          <GroupBox name="x4_2 Passe bas">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="cutoff frequency" value="1"/>
+          </GroupBox>
+          <GroupBox name="x4_2_euler">
+            <DoubleSpinBox name="period, 0 for auto:" value="0"/>
+            <DoubleSpinBox name="saturation, -1 to disable:" value="-1"/>
+          </GroupBox>
+        </Tab>
+        <Tab name="Mesures x4_0">
+          <DataPlot1D name="x" period="100" enabled="0"/>
+          <DataPlot1D name="y" period="100" enabled="0"/>
+          <DataPlot1D name="z" period="100" enabled="0"/>
+          <DataPlot1D name="vx" period="100" enabled="0"/>
+          <DataPlot1D name="vy" period="100" enabled="0"/>
+          <DataPlot1D name="vz" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Mesures (xy) x4_0">
+          <DataPlot2D name="xy" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Mesures x4_1">
+          <DataPlot1D name="x" period="100" enabled="0"/>
+          <DataPlot1D name="y" period="100" enabled="0"/>
+          <DataPlot1D name="z" period="100" enabled="0"/>
+          <DataPlot1D name="vx" period="100" enabled="0"/>
+          <DataPlot1D name="vy" period="100" enabled="0"/>
+          <DataPlot1D name="vz" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Mesures (xy) x4_1">
+          <DataPlot2D name="xy" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Mesures x4_2">
+          <DataPlot1D name="x" period="100" enabled="0"/>
+          <DataPlot1D name="y" period="100" enabled="0"/>
+          <DataPlot1D name="z" period="100" enabled="0"/>
+          <DataPlot1D name="vx" period="100" enabled="0"/>
+          <DataPlot1D name="vy" period="100" enabled="0"/>
+          <DataPlot1D name="vz" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Mesures (xy) x4_2">
+          <DataPlot2D name="xy" period="100" enabled="0"/>
+        </Tab>
+      </TabWidget>
+    </Tab>
+    <Tab name="myTab">
+      <TabWidget name="User Control">
+        <Tab name="Setup">
+          <GroupBox name="zCtrl">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="kp:" value="0.5"/>
+            <DoubleSpinBox name="ki:" value="0.1"/>
+            <DoubleSpinBox name="sat i:" value="0.5"/>
+            <DoubleSpinBox name="kd:" value="0.1"/>
+            <DoubleSpinBox name="offset g:" value="0.3"/>
+            <DoubleSpinBox name="sat:" value="1"/>
+            <DoubleSpinBox name="offset step:" value="0.0002"/>
+            <DoubleSpinBox name="alpha_1:" value="0.8"/>
+            <DoubleSpinBox name="alpha_2:" value="0.1"/>
+            <DoubleSpinBox name="mg:" value="0.36"/>
+            <DoubleSpinBox name="sat_u:" value="1"/>
+          </GroupBox>
+          <GroupBox name="xCtrl-Backstepping">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="alpha_1:" value="0.4"/>
+            <DoubleSpinBox name="alpha_2:" value="0.6"/>
+            <DoubleSpinBox name="sat_u:" value="0.2"/>
+          <DoubleSpinBox name="gain:" value="0.1"/></GroupBox>
+          <GroupBox name="yCtrl-Backstepping">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="alpha_1:" value="0.4"/>
+            <DoubleSpinBox name="alpha_2:" value="0.6"/>
+            <DoubleSpinBox name="sat_u:" value="0.2"/>
+          <DoubleSpinBox name="gain:" value="0.1"/></GroupBox>
+          <GroupBox name="Attitude Quaternion">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="k2:" value="-0.2"/>
+            <DoubleSpinBox name="l2:" value="30"/>
+            <DoubleSpinBox name="k3:" value="-0.2"/>
+            <DoubleSpinBox name="l3:" value="20"/>
+            <DoubleSpinBox name="satQ:" value="0.1"/>
+          </GroupBox>
+        <GroupBox name="Attitude Quaternion- SMC"><DoubleSpinBox name="alpha_x:" value="0.20"/><DoubleSpinBox name="beta_x:" value="5.00"/><DoubleSpinBox name="rho_x:" value="1.00"/><DoubleSpinBox name="Scale_x:" value="-0.30"/><DoubleSpinBox name="alpha_y:" value="0.20"/><DoubleSpinBox name="beta_y:" value="5.00"/><DoubleSpinBox name="rho_y:" value="1.00"/><DoubleSpinBox name="Scale_y:" value="-0.30"/><DoubleSpinBox name="alpha_z:" value="0.20"/><DoubleSpinBox name="beta_z:" value="5.00"/><DoubleSpinBox name="rho_z:" value="1.00"/><DoubleSpinBox name="Scale_z:" value="-0.30"/><DoubleSpinBox name="satQ:" value="0.10"/></GroupBox></Tab>
+        <Tab name="Graphs 01 pf">
+          <DataPlot1D name="zCtrl" period="100" enabled="0"/>
+          <DataPlot1D name="xCtrl-Backstepping" period="100" enabled="0"/>
+          <DataPlot1D name="yCtrl-Backstepping" period="100" enabled="0"/>
+          <DataPlot1D name="Attitude Quaternion" period="100" enabled="0"/>
+        <GroupBox name="Attitude Signals"><GroupBox name="Euler Angles"><DataPlot1D name="Roll-Data" period="100" enabled="0"/><DataPlot1D name="Pitch-Data" period="100" enabled="0"/><DataPlot1D name="Yaw-Data" period="100" enabled="0"/></GroupBox><GroupBox name="Quaternion Error"><DataPlot1D name="Quaternion - Error" period="100" enabled="0"/></GroupBox></GroupBox></Tab>
+        <Tab name="Graphs 02 pf"/>
+      </TabWidget>
+    </Tab>
+    <Tab name="MultiAgent">
+      <TabWidget name="User Control">
+        <Tab name="MultiAgent">
+          <GroupBox name="x_Formation">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="FG_01: " value="1.0"/>
+            <DoubleSpinBox name="alpha_1 (Bkstp): " value="0.1"/>
+            <DoubleSpinBox name="alpha_2 (Bsktp): " value="0.8"/>
+            <DoubleSpinBox name="factor  (Bkstp): " value="1.0"/>
+            <DoubleSpinBox name="sat_u:" value="0.3"/>
+          <DoubleSpinBox name="Sat_Consensus: " value="1"/><DoubleSpinBox name="Gain: " value="0.1"/><DoubleSpinBox name="GainF (Bsktp): " value="0.1"/><DoubleSpinBox name="GainL (Bsktp): " value="0.8"/><DoubleSpinBox name="alpha(der)SMC:" value="0.200"/><DoubleSpinBox name="beta(prop)SMC:" value="0.100"/><DoubleSpinBox name="rho SMC: " value="1.00"/><DoubleSpinBox name="Scale CTRL" value="0.10"/><DoubleSpinBox name="Sat CTRL" value="0.10"/></GroupBox>
+          <GroupBox name="y_Formation">
+            <DoubleSpinBox name="period, 0 for auto" value="0"/>
+            <DoubleSpinBox name="FG_01: " value="0.7"/>
+            <DoubleSpinBox name="alpha_1 (Bkstp): " value="0.1"/>
+            <DoubleSpinBox name="alpha_2 (Bsktp): " value="0.8"/>
+            <DoubleSpinBox name="factor  (Bkstp): " value="-0.5"/>
+            <DoubleSpinBox name="sat_u:" value="0.3"/>
+          <DoubleSpinBox name="Sat_Consensus: " value="1"/><DoubleSpinBox name="Gain: " value="0.1"/><DoubleSpinBox name="GainF (Bsktp): " value="0.1"/><DoubleSpinBox name="GainL (Bsktp): " value="0.8"/><DoubleSpinBox name="alpha(der)SMC:" value="0.200"/><DoubleSpinBox name="beta(prop)SMC:" value="0.100"/><DoubleSpinBox name="rho SMC: " value="1.00"/><DoubleSpinBox name="Scale CTRL" value="0.10"/><DoubleSpinBox name="Sat CTRL" value="0.10"/></GroupBox>
+          <GroupBox name="Rel Dist x F1">
+            <DoubleSpinBox name="F1x[0][0]:" value="0"/>
+            <DoubleSpinBox name="F1x[0][1]:" value="-1"/>
+            <DoubleSpinBox name="F1x[0][2]:" value="-1"/>
+            <DoubleSpinBox name="F1x[1][0]:" value="1"/>
+            <DoubleSpinBox name="F1x[1][1]:" value="0"/>
+            <DoubleSpinBox name="F1x[1][2]:" value="0"/>
+            <DoubleSpinBox name="F1x[2][0]:" value="1"/>
+            <DoubleSpinBox name="F1x[2][1]:" value="0"/>
+            <DoubleSpinBox name="F1x[2][2]:" value="0"/>
+          <DoubleSpinBox name="F1x[0][3]:" value="0"/><DoubleSpinBox name="F1x[1][3]:" value="1.5"/><DoubleSpinBox name="F1x[2][3]:" value="1.5"/></GroupBox>
+          <GroupBox name="Rel Dist x F2">
+            <DoubleSpinBox name="F2x[0][0]:" value="0"/>
+            <DoubleSpinBox name="F2x[0][1]:" value="-1"/>
+            <DoubleSpinBox name="F2x[0][2]:" value="-2"/>
+            <DoubleSpinBox name="F2x[1][0]:" value="1"/>
+            <DoubleSpinBox name="F2x[1][1]:" value="0"/>
+            <DoubleSpinBox name="F2x[1][2]:" value="-1"/>
+            <DoubleSpinBox name="F2x[2][0]:" value="2"/>
+            <DoubleSpinBox name="F2x[2][1]:" value="1"/>
+            <DoubleSpinBox name="F2x[2][2]:" value="0"/>
+          <DoubleSpinBox name="F2x[0][3]:" value="0"/><DoubleSpinBox name="F2x[1][3]:" value="0"/><DoubleSpinBox name="F2x[2][3]:" value="0"/></GroupBox>
+          <GroupBox name="Rel Dist y F1">
+            <DoubleSpinBox name="F1y[0][0]:" value="0"/>
+            <DoubleSpinBox name="F1y[0][1]:" value="-1"/>
+            <DoubleSpinBox name="F1y[0][2]:" value="1"/>
+            <DoubleSpinBox name="F1y[1][0]:" value="1"/>
+            <DoubleSpinBox name="F1y[1][1]:" value="0"/>
+            <DoubleSpinBox name="F1y[1][2]:" value="2"/>
+            <DoubleSpinBox name="F1y[2][0]:" value="-1"/>
+            <DoubleSpinBox name="F1y[2][1]:" value="-2"/>
+            <DoubleSpinBox name="F1y[2][2]:" value="0"/>
+          <DoubleSpinBox name="F1y[0][3]:" value="0"/><DoubleSpinBox name="F1y[1][3]:" value="1.5"/><DoubleSpinBox name="F1y[2][3]:" value="-1.5"/></GroupBox>
+          <GroupBox name="Rel Dist y F2">
+            <DoubleSpinBox name="F2y[0][0]:" value="0"/>
+            <DoubleSpinBox name="F2y[0][1]:" value="0"/>
+            <DoubleSpinBox name="F2y[0][2]:" value="0"/>
+            <DoubleSpinBox name="F2y[1][0]:" value="0"/>
+            <DoubleSpinBox name="F2y[1][1]:" value="0"/>
+            <DoubleSpinBox name="F2y[1][2]:" value="0"/>
+            <DoubleSpinBox name="F2y[2][0]:" value="0"/>
+            <DoubleSpinBox name="F2y[2][1]:" value="0"/>
+            <DoubleSpinBox name="F2y[2][2]:" value="0"/>
+          <DoubleSpinBox name="F2y[0][3]:" value="0"/><DoubleSpinBox name="F2y[1][3]:" value="1.5"/><DoubleSpinBox name="F2y[2][3]:" value="-1.5"/></GroupBox>
+          <GroupBox name="Formation 1 Selection">
+            <PushButton name="Formation 01" value="1"/>
+            <PushButton name="Emergency Land"/>
+          </GroupBox>
+          <GroupBox name="Formation 2 Selection">
+            <PushButton name="Formation 02" value="1"/>
+            <PushButton name="Emergency Land"/>
+          </GroupBox>
+        <GroupBox name="Transition"><PushButton name="Home" value="1"/><PushButton name="Flight Formation"/><PushButton name="Hold_Pos / Formation" value="1"/></GroupBox><GroupBox name="Ref_Fleet"><DoubleSpinBox name="Fleet Position(x)" value="0"/><DoubleSpinBox name="Fleet Position(y)" value="0"/></GroupBox><GroupBox name="Change Fleet Position"><DoubleSpinBox name="Fleet Position(x)" value="0"/><DoubleSpinBox name="Fleet Position(y)" value="0"/><PushButton name="Update Fleet Position"/></GroupBox><GroupBox name="Actual Fleet Position"><Label name="HomeX"/><Label name="HomeY"/></GroupBox></Tab>
+        <Tab name="Graphs 01 pf">
+          <DataPlot1D name="x_Formation" period="100" enabled="0"/>
+          <DataPlot1D name="y_Formation" period="100" enabled="0"/>
+        </Tab>
+        <Tab name="Graphs 02 pf"/>
+      </TabWidget>
+    </Tab>
+  <Tab name="Quad Tab"><TabWidget name="User Control"><Tab name="Setup"><GroupBox name="zCtrl"><DoubleSpinBox name="period, 0 for auto" value="0"/><DoubleSpinBox name="kp:" value="0.5"/><DoubleSpinBox name="ki:" value="0.1"/><DoubleSpinBox name="sat i:" value="0.5"/><DoubleSpinBox name="kd:" value="0.1"/><DoubleSpinBox name="offset g:" value="0.3"/><DoubleSpinBox name="sat:" value="1"/><DoubleSpinBox name="offset step:" value="0.0002"/><DoubleSpinBox name="alpha_1:" value="0.8"/><DoubleSpinBox name="alpha_2:" value="0.1"/><DoubleSpinBox name="mg:" value="0.36"/><DoubleSpinBox name="sat_u:" value="1"/></GroupBox><GroupBox name="xCtrl-Backstepping"><DoubleSpinBox name="period, 0 for auto" value="0"/><DoubleSpinBox name="alpha_1:" value="0.4"/><DoubleSpinBox name="alpha_2:" value="0.6"/><DoubleSpinBox name="sat_u:" value="0.2"/><DoubleSpinBox name="gain:" value="0.1"/></GroupBox><GroupBox name="yCtrl-Backstepping"><DoubleSpinBox name="period, 0 for auto" value="0"/><DoubleSpinBox name="alpha_1:" value="0.4"/><DoubleSpinBox name="alpha_2:" value="0.6"/><DoubleSpinBox name="sat_u:" value="0.2"/><DoubleSpinBox name="gain:" value="0.1"/></GroupBox><GroupBox name="Attitude Quaternion- SMC"><DoubleSpinBox name="alpha_x:" value="0.2"/><DoubleSpinBox name="beta_x:" value="5"/><DoubleSpinBox name="rho_x:" value="1"/><DoubleSpinBox name="Scale_x:" value="-0.3"/><DoubleSpinBox name="alpha_y:" value="0.2"/><DoubleSpinBox name="beta_y:" value="5"/><DoubleSpinBox name="rho_y:" value="1"/><DoubleSpinBox name="Scale_y:" value="-0.3"/><DoubleSpinBox name="alpha_z:" value="0.2"/><DoubleSpinBox name="beta_z:" value="5"/><DoubleSpinBox name="rho_z:" value="1"/><DoubleSpinBox name="Scale_z:" value="-0.3"/><DoubleSpinBox name="satQ:" value="0.1"/></GroupBox><GroupBox name="xCtrl-SMC"><DoubleSpinBox name="beta" value="0.1"/><DoubleSpinBox name="alpha" value="0.2"/><DoubleSpinBox name="rho" value="1"/><DoubleSpinBox name="SatCtrl" value="0.1"/><DoubleSpinBox name="ScaleCtrl" value="0.1"/></GroupBox><GroupBox name="yCtrl - SMC"><DoubleSpinBox name="beta" value="0.1"/><DoubleSpinBox name="alpha" value="0.2"/><DoubleSpinBox name="rho" value="1"/><DoubleSpinBox name="SatCtrl" value="0.1"/><DoubleSpinBox name="ScaleCtrl" value="0.1"/></GroupBox></Tab><Tab name="Attitude Graphs"><GroupBox name="Attitude Signals"><GroupBox name="Euler Angles"><DataPlot1D name="Roll-Data" period="100" enabled="1"/><DataPlot1D name="Pitch-Data" period="100" enabled="1"/><DataPlot1D name="Yaw-Data" period="100" enabled="1"/></GroupBox><GroupBox name="Quaternion Error"><DataPlot1D name="Quaternion - Error" period="100" enabled="1"/></GroupBox></GroupBox></Tab><Tab name="Position Graphs"><DataPlot1D name="zCtrl" period="100" enabled="1"/><DataPlot1D name="xCtrl-Backstepping" period="100" enabled="0"/><DataPlot1D name="yCtrl-Backstepping" period="100" enabled="0"/><DataPlot1D name="xCtrl-SMC" period="100" enabled="1"/><DataPlot1D name="yCtrl - SMC" period="100" enabled="1"/></Tab></TabWidget></Tab></TabWidget>
+  <PushButton name="save config on target (x4_0)" value="1"/>
+<PushButton name="save config on target (x4_1)" value="1"/></root>
